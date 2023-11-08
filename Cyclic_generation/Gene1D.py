@@ -51,14 +51,15 @@ def process_structure(line):
         smiles = Generation.headtotail(line)
     return (line, smiles)
 
-def ParaGetSmilesNoScreen(aa, n_cores=None):
+def ParaGetSmilesNoScreen(aa, n_cores=None, amino_acids=["A", "R", "N", "D", "C", "Q", "E", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V"]):
 
     if n_cores is None:
         n_cores = cpu_count()
 
     structure_list = []
     smile_list = []
-    pre_list = neckless_list(aa)
+    amino_acids = amino_acids
+    pre_list = neckless_list(aa, amino_acids)
     
     print("1D structure generating...")
     
@@ -77,5 +78,9 @@ def ParaGetSmilesNoScreen(aa, n_cores=None):
     print(f"{sscount} disulfide CPs and {normalcount} head to tail CPs generated.")
     
     return structure_list, smile_list
+
+
+
+
 
 
