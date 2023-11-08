@@ -13,9 +13,9 @@ def GenList(aa):
     return aa_counter
 
 
-def neckless_list(aa):
+def neckless_list(aa, amino_acids=["A", "R", "N", "D", "C", "Q", "E", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V"]):
     print("List generating ...")
-    amino_acids = ["A", "R", "N", "D", "C", "Q", "E", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V"]
+    amino_acids = amino_acids
     all_combinations = set()
 
     for comb in tqdm(itertools.product(amino_acids, repeat=aa - 2)):
